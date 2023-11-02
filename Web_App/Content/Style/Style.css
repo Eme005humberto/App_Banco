@@ -1,0 +1,113 @@
+﻿/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para el menú */
+nav {
+    background-color: #333;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    padding: 15px 20px;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+    a:hover {
+        background-color: #555;
+    }
+.img{
+    background-color:darkgray;
+}
+/*Mensaje de Bienvenida*/
+/* Estilos para el mensaje de bienvenida */
+.bienvenida {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 1000;
+    display: none;
+}
+
+    .bienvenida h1 {
+        font-size: 24px;
+        color: #fff;
+    }
+
+    .bienvenida button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+        .bienvenida button:hover {
+            background-color: #0056b3;
+        }
+/* Estilos para el footer */
+footer {
+    position:relative;
+    top:410px;
+    background-color: #333; /* Color de fondo del footer */
+    color: #fff; /* Color del texto en el footer */
+    padding: 20px; /* Espaciado interior para el contenido del footer */
+    text-align: center; /* Alineación del texto en el centro */
+}
+
+    /* Estilos para los enlaces en el footer */
+    footer a {
+        color: #fff; /* Color de los enlaces en el footer */
+        text-decoration: none; /* Quita la subrayado de los enlaces */
+        margin: 0 10px; /* Espaciado entre los enlaces */
+    }
+/* styles.css 
+.carousel-container {
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+    .carousel li {
+        flex: 0 0 100%;
+    }
+
+    .carousel img {
+        width: 100%;
+        height: auto;
+    }
+    */

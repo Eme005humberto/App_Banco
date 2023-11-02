@@ -1,0 +1,71 @@
+﻿@model Web_App.Models.M_Register_User
+@{
+    ViewBag.Title = "RegistrarUsuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .validation-error {
+        color: red;
+    }
+    label {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+</style>
+<h2>Registrar Usuario</h2>
+@using (Html.BeginForm("Create_User", "CreateUser", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="form-group">
+        <label for="First_Name">
+            Ingrese su Nombre: @if (Model != null)
+            {@Model.First_Name}
+        </label>
+        @Html.TextBoxFor(model => model.First_Name, new { @class = "form-control" })
+        <label for="Last_Name">
+            Ingrese su Apellido: @if (Model != null)
+            {@Model.Last_Name}
+        </label>
+        @Html.TextBoxFor(model => model.Last_Name, new { @class = "form-control" })
+        <label for="Mail">
+            Ingrese su Email: @if (Model != null)
+            {@Model.Mail}
+        </label>
+        @Html.TextBoxFor(model => model.Mail, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Mail, "", new { @class = "validation-error" })
+        <br />
+        <label for="Phone">
+            Ingrese su numero de telefono: @if (Model != null)
+            {@Model.Phone}
+        </label>
+        @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
+        <label for="Name_User">
+            Ingrese un nombre de usario: @if (Model != null)
+            {@Model.Name_User}
+        </label>
+        @Html.TextBoxFor(model => model.Name_User, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name_User, "", new { @class = "validation-error" })
+        <br />
+        <label for="Password_User">
+            Ingrese una contraseña: @if (Model != null)
+            {@Model.Password_User}
+        </label>
+        @Html.TextBoxFor(model => model.Password_User, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Password_User, "", new { @class = "validation-error" })
+        <br />
+        <label for="Confirmar_Password">
+            Confirmar Contraseña: @if (Model != null)
+            {@Model.Confirmar_Password}
+        </label>
+        @Html.TextBoxFor(model => model.Confirmar_Password, new { @class = "form-control" })
+    </div>
+    <br />
+    @ViewData["Mensaje"]
+    <br />
+    <button type="submit" class="btn btn-primary">
+        <i class="fas fa-user-plus"></i>
+        Crear Usuario
+    </button>
+    <br />
+    <a href="@Url.Action("InicioSesion","Login")">¿Ya Eres Usuario Inicio Sesion?</a>
+}

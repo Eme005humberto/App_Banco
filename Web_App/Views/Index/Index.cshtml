@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="~/Content/Img/Icono.ico" type="image/x-icon">
+    <link rel="stylesheet" href="~/Content/Style/Style.css">
+    <title>Menu Principal</title>
+</head>
+<body>
+    <div class="img">
+        <img src="~/Content/Img/filebanco-agricola-sv-png.png" width="300" />
+    </div>
+    <nav>
+        <ul>
+            <li><a href="@Url.Action("Index","Index")">Inicio</a></li>
+            <li><a href="@Url.Action("Index","tblEmployees")">Registro</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Acerca de</a></li>
+        </ul>
+    </nav>
+    <div class="bienvenida" id="bienvenida">
+        <img src="~/Content/Img/desconocido.png" width="300" id="img" />
+        <h1>Bienvenido usuario!!</h1>
+        <button onclick="cerrarBienvenida()">Cerrar</button>
+    </div>
+    <main>
+
+    </main>
+    <footer>
+      Banco Agricola - 2023
+    </footer>
+    <script src="~/Content/Js/Script.js"></script>
+</body>
+</html>

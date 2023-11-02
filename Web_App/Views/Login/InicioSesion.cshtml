@@ -1,0 +1,41 @@
+﻿@model Web_App.Models.M_Register_User
+@{
+    ViewBag.Title = "InicioSesion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    label {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    h2 {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+</style>
+<h2>Inicio Sesion</h2>
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(true)
+@using (Html.BeginForm("ValidateUser", "Login", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="U_User">
+            Usuario: @if (Model != null)
+            {@Model.Name_User}
+        </label>
+        @Html.TextBoxFor(model => model.Name_User, new { @class = "form-control" })
+        <label for="C_Password">
+            Contraseña: @if (Model != null)
+            {@Model.Password_User}
+        </label>
+        @Html.TextBoxFor(model => model.Password_User, new { @class = "form-control" })
+    </div>
+    <br />
+    <div class="Send">
+        <button type="submit" class="btn btn-primary">
+            Ingresar
+            <i class="fas fa-door-open"></i>
+        </button>
+    </div>
+    <br />
+    <a href="@Url.Action("RegistrarUsuario","CreateUser")">¿No estas registrados?</a>
+}
+

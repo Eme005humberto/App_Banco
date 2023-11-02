@@ -1,0 +1,72 @@
+﻿@model Web_App.tblEmployees
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar informacion del usuario</h2>
+<style>
+    h2 {
+        font-family: 'Times New Roman', Times, serif;
+    }
+    h3 {
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color:red;
+    }
+</style>
+<h3>¿Estas seguro que quieres eliminar este registro?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           <label>Apellidos</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Last_Name)
+        </dd>
+
+        <dt>
+           <label>Nombres</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.First_Name)
+        </dd>
+
+        <dt>
+            <label>Edad</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Years)
+        </dd>
+
+        <dt>
+           <label>Nro Documento</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NroDocument)
+        </dd>
+
+        <dt>
+           <label>Cargo</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-primary" /> |
+            @Html.ActionLink("Regresar al menu", "Index", null, new {@class = "btn btn-danger"})
+        </div>
+    }
+</div>

@@ -1,0 +1,76 @@
+﻿@model Web_App.tblEmployees
+
+@{
+    ViewBag.Title = "Modifcar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Modifcar datos del empleado</h2>
+<style>
+    h2 {
+        font-family: 'Times New Roman', Times, serif;
+    }
+    label {
+        font-family: 'Times New Roman', Times, serif;
+    }
+</style>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+    <div class="form-group">
+       <label>Apellidos: </label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Last_Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Last_Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+        <div class="form-group">
+           <label>Nombres: </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.First_Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.First_Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+           <label>Edad: </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Years, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Years, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Nro Documento: </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NroDocument, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NroDocument, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+           <label>Cargo: </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Post, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Post, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Actualizar" class="btn btn-warning" />
+            </div>
+        </div>
+    </div>
+}
+<br />
+<div>
+    @Html.ActionLink("Regresar al menu", "Index",null, new {@class = "btn btn-danger"})
+</div>

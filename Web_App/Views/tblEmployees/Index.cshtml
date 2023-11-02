@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Web_App.tblEmployees>
+
+@{
+    ViewBag.Title = "Registro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    h2{
+        font-family:'Times New Roman', Times, serif;
+    }
+</style>
+<h2>Registro Completo</h2>
+<p>
+    <button type="button" class="btn btn-primary">
+        <a href="@Url.Action("Create")" style="color: white; text-decoration: none;">
+            <i class="fa fa-user"></i>
+            Agregar nuevo empleado
+        </a>
+    </button>
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Apellidos
+        </th>
+        <th>
+           Nombres
+        </th>
+        <th>
+           Edad
+        </th>
+        <th>
+           Nro Documento
+        </th>
+        <th>
+           Cargo
+        </th>
+        <th>
+            Editar
+        </th>
+        <th>
+            Eliminar
+        </th>
+        <th>
+            Detalles
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Last_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.First_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Years)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NroDocument)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.Id },new{@class = "btn btn-warning"}) |
+        </td>
+        <td>
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id },new {@class = "btn btn-danger"})|
+        </td>
+        <td>
+            @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new {@class = "btn btn-success"}) |
+        </td>
+    </tr>
+}
+
+</table>
